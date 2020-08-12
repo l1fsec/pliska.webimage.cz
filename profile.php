@@ -1,12 +1,32 @@
-<!DOCTYPE HTML>
-<!--O mně-->
+<?php
+session_start();
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: index.html');
+	exit;
+}
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = '';
+$DATABASE_NAME = 'phplogin';
+$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+if (mysqli_connect_errno()) {
+	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
+}
+$stmt = $con->prepare('SELECT password, email FROM accounts WHERE id = ?');
+$stmt->bind_param('i', $_SESSION['id']);
+$stmt->execute();
+$stmt->bind_result($password, $email);
+$stmt->fetch();
+$stmt->close();
+?>
+<!DOCTYPE html>
 <html>
 	<head>
-		<title>Jan Pliska | O mně</title>
+		<title>Jan Pliska | Profil</title>
 		<meta charset="utf-8" />
 		<!--OpenGraph Metadata-->
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta property="og:title" content="Jan Pliska | O mně">
+		<meta property="og:title" content="Jan Pliska | Profil">
 		<meta property="og:image" content="http://pliska.webimage.cz/images/banner2.png">
 		<meta property="og:description" content="Vítejte, na mém webu!">
 		<meta property="og:url" content="http://pliska.webimage.cz">
@@ -24,43 +44,42 @@
 	<body class="subpage">
 		<!-- Header -->
 		<header id="header" class="alt">
-			<div class="logo"><a href="index.html">Jan Pliska <span>O mně</span></a></div>
+			<div class="logo"><a href="index.html">Jan Pliska <span>Profil</span></a></div>
 			<a href="#menu"><span>Menu</span></a>
 		</header>
 		<!-- Nav -->
 		<nav id="menu">
 			<ul class="links">
-				<li><a href="index.html">Domů</a></li>
-				<li><a href="projekty.html">Projekty</a></li>
+				<li><a href="home.php" class="icon  fa-chevron-left">Zpět</a></li>
+				<li><a href="logout.php" class="icon fa-sign-out">Odhlásit se</a></li>
 			</ul>
 		</nav>
-		<!-- Content -->
-		<section id="post" class="wrapper bg-img" data-bg="banner6.jpg">
-			<div class="inner">
-				<article class="box">
-					<header>
-						<h2>O mně</h2>
-						<p>31.7.2020</p>
-					</header>
-					<div class="content">
-						<p>Ahoj, dobrý den,  jmenuji se Jan Pliska a je mi 18 let.Učím se obor Informační technologie na Střední průmyslové škole Resslově, středisko Stříbrníky.Věnuji se programování v Javě, Pythonu a dělám webový design. Mezi mé záliby je hra na kytaru a digitální tvorba hudby.</p>
-						<p>Již od utlého věku jsem měl zálibu ať už, v hrání počítačových her, nebo hrabání se v počítači.
-						Ikdyž jsem měl jiné přesvědčení, šel jsem studovat Informační technologie a nyní tento obor studuji již 2. rokem.</p>
-					</div>
-					<footer>
-					</footer>
-				</article>
-			</div>
-		</section>
-		<!-- Footer -->
+		<!-- Main -->
+		<div id="main" class="container">
+			<h2><?php echo 'Ahoj ' . $_SESSION['name'] . '!'; ?></h2>
+			<blockquote>Zde se můžeš podívat na svoje přihlašovací údaje.</blockquote>
+			<table>
+					<td>Jméno:</td>
+						<td><?=$_SESSION['name']?></td>
+					</tr>
+					<tr>
+						<td>Heslo:</td>
+						<td><?=$password?></td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td><?=$email?></td>
+				</table>
+		
+		<!--Footer-->
 		<footer id="footer">
 			<div class="inner">
 				<div class="copyright">
-					&copy; Jan Pliska 2020
+					&copy; <b>Jan Pliska 2020</b>
 				</div>
 			</div>
-		</footer>
-		<!-- Scripts -->
+		</div>
+	</footer>
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
