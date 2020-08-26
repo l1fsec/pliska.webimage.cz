@@ -1,7 +1,5 @@
-# pliska.webimage.cz / 2.0
+# pliska.webimage.cz / 2.2
  
-***Přidán***
-
-```
-In working state
-```
+ ```
+ Mnou vytvořené stránky!
+ ```
