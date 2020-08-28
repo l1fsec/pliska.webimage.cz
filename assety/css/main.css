@@ -3462,7 +3462,7 @@ S
 		-ms-transition: -ms-transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		transition: transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		-webkit-overflow-scrolling: touch;
-		background: #1324bd;
+		background: #2424ad;
 		box-shadow: none;
 		color: #ffffff;
 		height: 100%;

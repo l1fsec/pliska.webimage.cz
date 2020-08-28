@@ -40,4 +40,3 @@ if ($stmt = $con->prepare('SELECT id, psw FROM accounts WHERE name = ?')) {
 
 
 	$stmt->close();
-?>
