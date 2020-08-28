@@ -38,9 +38,9 @@ if (!isset($_SESSION['loggedin'])) {
 		</header>
 		<nav id="menu">
 			<ul class="links">
-				<li><a href="articles/uvod.html" class="fas fa-question">Tajemnosti</a></li>
-				<li><a href="profile.php" class="icon round fa-user">Profil</a></li>
-				<li><a href="logout.php" class="icon fa-sign-out">Odhlásit se</a></li>
+				<li><a href="articles/about.html" class="icon fa-question"> Tajemnosti</a></li>
+				<li><a href="profile.php" class="icon  fa-user"> Profil</a></li>
+				<li><a href="logout.php" class="icon fa-sign-out"> Odhlásit se</a></li>
 			</ul>
 		</nav>
 		<!--Content-->
