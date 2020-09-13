@@ -35,7 +35,7 @@ if ($stmt = $con->prepare('SELECT id, psw FROM accounts WHERE name = ?')) {
 	}
 	}
 } else {
-	header('Location: ../menu/login.html');
+	header('Location: menu/login.html');
 }
 
 
