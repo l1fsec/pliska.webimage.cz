@@ -1,7 +1,7 @@
 
 .timeline{
-    --uiTimelineMainColor: var(--timelineMainColor, #222);
-    --uiTimelineSecondaryColor: var(--timelineSecondaryColor, #fff);
+    --uiTimelineMainColor: var(--timelineMainColor, #8A0575);
+    --uiTimelineSecondaryColor: var(--timelineSecondaryColor, #8A0575);
   
     position: relative;
     padding-top: 3rem;
@@ -84,7 +84,7 @@
     padding: 1.5rem 2rem;
     border-radius: 2px;
     border-left: 3px solid var(--uiTimelineMainColor);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+    box-shadow: 0 1px 3px 0 rgba(85, 44, 83, 0.12), 0 1px 2px 0 rgba(0, 0, 0, .24);
     background-color: var(--uiTimelineSecondaryColor);
   }
   
@@ -138,7 +138,7 @@
   }
   
   .timeline{
-    --timelineMainColor: #4557bb;
+    --timelineMainColor: #b4049a;
     font-size: 16px;
   }
   
@@ -167,7 +167,7 @@
     font-size: 1.6rem;
     color: #222;
   
-    background-color: #f0f0f0;
+    background-color: #000;
     margin: 0;
     -webkit-overflow-scrolling: touch;   
     overflow-y: scroll;
