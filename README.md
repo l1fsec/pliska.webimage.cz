@@ -1,7 +1,6 @@
-# pliska.webimage.cz / 1.3
+# pliska.webimage.cz 
 
 ```
 Mnou vytvořené stránky!
 
-Verze 1.3
 ```
